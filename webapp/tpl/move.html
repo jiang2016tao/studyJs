@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝滚动</title>
+    <style type="text/css">
+        div{
+            left: 50px;
+            text-align: center;
+            width: 200px;
+            height: 450px;
+            overflow: hidden;
+        }
+        li:not(.li-btn){
+            height: 150px;
+        }
+        li{
+            list-style-type: none;
+            text-align: center;
+            width: 200px;
+        }
+        .li-background1{
+            background: url("../img/1.jpg");
+        }
+        .li-background2{
+            background: url("../img/2.jpg");
+        }
+        .li-background3{
+            background: url("../img/3.jpg");
+        }
+        .li-background4{
+            background: url("../img/4.jpg");
+        }
+        ul{
+            position: relative;
+            top:0px;
+        }
+    </style>
+
+</head>
+<body>
+<button id="up_btn">向上</button>
+    <div id="div_id">
+
+        <ul>
+            <!--<li class="li-btn"><button>向上</button></li>-->
+            <li class="li-background1"></li>
+            <li class="li-background2"></li>
+            <li class="li-background3"></li>
+            <li class="li-background4"></li>
+            <li class="li-background1"></li>
+            <li class="li-background2"></li>
+            <li class="li-background3"></li>
+            <li class="li-background4"></li>
+            <!--<li class="li-btn"><button>向下</button></li>-->
+        </ul>
+    </div>
+<button id="down_btn">向下</button>
+</body>
+<script type="application/javascript">
+    var timer;
+    var speedStep=-20;
+    var _offSetTop=0;
+    var initTop;
+        var divDom=document.getElementById("div_id");
+        var ulDom=divDom.getElementsByTagName("ul")[0];
+        var liDoms=ulDom.getElementsByTagName("li");
+        var upBtn=document.getElementById("up_btn");
+        var downBtn=document.getElementById("down_btn");
+        function move(v){
+            //记录，初始化页面时，元素的top值
+            initTop=ulDom.offsetTop;
+            timer=setInterval(function(){
+                _offSetTop+=speedStep*v;
+                var topStr=_offSetTop+"px";
+                console.log(topStr);
+                if(v==1){
+                    if(Math.abs(_offSetTop)>(liDoms[0].offsetHeight*liDoms.length/2)){
+                        ulDom.offsetTop=initTop;
+                        _offSetTop=0;
+                    }else{
+                        //这里设置的top会在原来的基础上相加
+                        ulDom.style.top=topStr;
+                    }
+                }
+                else{
+                    if(ulDom.offsetTop>initTop){
+                        ulDom.style.top=-(liDoms[0].offsetHeight*liDoms.length/2+initTop)+"px";
+                        _offSetTop=0;
+                    }
+                    else{
+                        //这里设置的top会在原来的基础上相加
+                        ulDom.style.top=topStr;
+                    }
+                }
+                //ulDom.offsetTop获取到的值永远是不变的
+                console.log(ulDom.offsetTop);
+            },300)
+        }
+        window.onload=function(){
+            upBtn.onmousedown=function(){move(1)};
+            upBtn.onmouseup=function(){
+                clearInterval(timer);
+            };
+            downBtn.onmousedown=function(){
+                move(-1);
+            };
+            downBtn.onmouseup=function(){
+                clearInterval(timer);
+            }
+        };
+</script>
+</html>
