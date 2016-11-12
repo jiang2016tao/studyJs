@@ -39,6 +39,7 @@
 
 </head>
 <body>
+<div style="height: 500px">
 <button id="up_btn">向上</button>
     <div id="div_id">
 
@@ -56,6 +57,7 @@
         </ul>
     </div>
 <button id="down_btn">向下</button>
+</div>
 </body>
 <script type="application/javascript">
     var timer;
@@ -81,16 +83,19 @@
                     }else{
                         //这里设置的top会在原来的基础上相加
                         ulDom.style.top=topStr;
+//                        ulDom.offsetTop=ulDom.offsetTop+_offSetTop;
+//                        ulDom.style.top=ulDom.offsetTop+speedStep+"px";
                     }
                 }
                 else{
-                    if(ulDom.offsetTop>initTop){
-                        ulDom.style.top=-(liDoms[0].offsetHeight*liDoms.length/2+initTop)+"px";
-                        _offSetTop=0;
+                    if(ulDom.offsetTop>=initTop){
+                        ulDom.style.top=-(ulDom.offsetHeight/2+initTop)+"px";
+                        _offSetTop=-(ulDom.offsetHeight/2+initTop);
                     }
                     else{
                         //这里设置的top会在原来的基础上相加
                         ulDom.style.top=topStr;
+//                        ulDom.offsetTop=(ulDom.offsetTop+_offSetTop);
                     }
                 }
                 //ulDom.offsetTop获取到的值永远是不变的
@@ -98,11 +103,13 @@
             },300)
         }
         window.onload=function(){
-            upBtn.onmousedown=function(){move(1)};
+            upBtn.onmousedown=function(){_offSetTop=0;move(1)};
             upBtn.onmouseup=function(){
+
                 clearInterval(timer);
             };
             downBtn.onmousedown=function(){
+                _offSetTop=0;
                 move(-1);
             };
             downBtn.onmouseup=function(){
