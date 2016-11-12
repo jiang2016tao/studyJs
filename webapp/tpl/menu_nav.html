@@ -10,14 +10,44 @@
     }
     li{
         list-style-type:none;
+        display: inline-block;
+        cursor: pointer;
     }
 </style>
 <body>
     <div class="menu-top">
-        <li>菜单1</li>|
-        <li>菜单1</li>|
-        <li>菜单1</li>
+        <li class="menu-li">菜单1
+            <ul style="display: none;position: absolute">
+                <li>菜单1_1</li>
+                <li>菜单1_2</li>
+            </ul>
+        </li>|
+        <li class="menu-li">菜单2
+            <ul style="display: none;position: absolute">
+                <li>菜单2_1</li>
+                <li>菜单2_2</li>
+            </ul>
+        </li>|
+        <li class="menu-li">菜单3
+            <ul style="display: none;position: absolute">
+                <li>菜单3_1</li>
+                <li>菜单3_2</li>
+            </ul>
+        </li>
 
     </div>
 </body>
+<script type="application/javascript">
+    var menuLis=document.getElementsByClassName("menu-li");
+    window.onload=function(){
+        for(var i=0;i<menuLis.length;i++){
+            menuLis[i].onmouseover=function(){
+                this.getElementsByTagName("ul")[0].style.display="block";
+            };
+            menuLis[i].onmouseout=function(){
+                this.getElementsByTagName("ul")[0].style.display="none";
+            };
+        }
+    };
+</script>
 </html>
