@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单js日历</title>
+    <style type="text/css">
+        .calendar{
+            height: 100%;
+            width: 240px;
+            background: #444444;
+        }
+        li{
+            list-style-type:none;
+            text-align: center;
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            margin: 5px;
+            background: #858585;
+        }
+        span{
+            display: block;
+        }
+        li:hover{
+            background: #ffffff;
+            color: red;
+            cursor: pointer;
+        }
+        .div-text{
+            background: #ffffff;
+            /*padding: 10px;*/
+            margin: 10px;
+            text-align: left;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="calendar">
+        <ul>
+            <li>
+                <span>1</span>
+                <span>JAN</span>
+            </li>
+            <li>
+                <span>2</span>
+                <span>FER</span>
+            </li>
+            <li>
+                <span>3</span>
+                <span>MAR</span>
+            </li>
+            <li>
+                <span>4</span>
+                <span>APR</span>
+            </li>
+            <li>
+                <span>5</span>
+                <span>MAY</span>
+            </li>
+            <li>
+                <span>6</span>
+                <span>JUN</span>
+            </li>
+            <li>
+                <span>7</span>
+                <span>JUL</span>
+            </li>
+            <li>
+                <span>8</span>
+                <span>AUG</span>
+            </li>
+            <li>
+                <span>9</span>
+                <span>SEP</span>
+            </li>
+            <li>
+                <span>10</span>
+                <span>OCT</span>
+            </li>
+            <li>
+                <span>11</span>
+                <span>NOV</span>
+            </li>
+            <li>
+                <span>12</span>
+                <span>DEC</span>
+            </li>
+        </ul>
+        <div class="div-text">
+            1月活动
+        </div>
+    </div>
+</body>
+<script type="application/javascript">
+    var arrTexts=[
+        "1月天气好",
+        "二月下雨天",
+        "三月太阳出来了",
+        "四月树木绿了",
+        "五月人民欢喜了",
+        "六月天气变热了",
+        "七月暑假来了",
+        "八月热死了",
+        "九月我们上雪了",
+        "十月好日子",
+        "十一月冷了",
+        "十二月看雪了"
+    ];
+    var lis=document.getElementsByTagName("li");
+    var docText=document.getElementsByClassName("div-text")[0];
+    for(var i=0;i<lis.length;i++){
+        lis[i].index=i;
+        lis[i].onmouseover=function(){
+//            for(var j=0;j<lis.length;j++){
+                docText.innerHTML="<h2>"+(this.index+1)+"月</h2>"+arrTexts[this.index];
+//            }
+
+        };
+    }
+</script>
+</html>
