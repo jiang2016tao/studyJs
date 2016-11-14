@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格移动</title>
+    <style type="text/css">
+        table th,table td{
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+    <script src="../plugin/jquery-1.7.2.js"></script>
+    <script type="application/javascript">
+        window.onload=function(){
+            var OTbodyDiv=document.getElementById("tbody_div");
+            var OBtn=document.getElementById("btn");
+            var speed=-100;
+            var html=OTbodyDiv.innerHTML;
+            OTbodyDiv.innerHTML+=html;
+            var height=OTbodyDiv.offsetHeight;
+            OBtn.onclick=function(){
+                var $OTbodyDiv=$(OTbodyDiv);
+                $OTbodyDiv.animate({top:(OTbodyDiv.offsetTop+speed)+"px"},function(){
+                    if(Math.abs(OTbodyDiv.offsetTop)>height/2){
+                        $OTbodyDiv.css("top","24px");
+                    }
+                });
+            };
+//            setInterval(function(){
+////                OTbodyDiv.style.top=(OTbodyDiv.offsetTop-10)+"px";
+////                alert("aaa");
+//                OTbodyDiv.animate({top:"24px"},function(){
+//                    OTbodyDiv.style.top="-50px";
+//                });
+//            },1000);
+
+        }
+    </script>
+</head>
+<body>
+<div style="position: relative;z-index: 999999;">
+<div style="position: fixed">
+    <table>
+        <thead>
+            <tr>
+                <th>1111111</th>
+                <th>2222222</th>
+                <th>3333333</th>
+            </tr>
+        </thead>
+    </table>
+    <input type="button" id="btn" value="btn"/>
+</div>
+</div>
+<div style="top: 24px;position: relative" id="tbody_div">
+    <table>
+        <tbody>
+            <tr><td rowspan="3">aaaaaa</td><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td rowspan="3">aaaaaa</td><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td rowspan="3">aaaaaa</td><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td rowspan="3">aaaaaa</td><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td rowspan="3">aaaaaa</td><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td rowspan="3">aaaaaa</td><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td rowspan="3">aaaaaa</td><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td rowspan="3">aaaaaa</td><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td rowspan="3">aaaaaa</td><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr><tr><td rowspan="3">aaaaaa</td><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr><tr><td rowspan="3">aaaaaa</td><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td rowspan="3">aaaaaa</td><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr><tr><td rowspan="3">aaaaaa</td><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa</td><td>aaaaaa</td></tr>
+            <tr><td>aaaaaa1111</td><td>aaaaaa11111111</td></tr>
+
+
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
