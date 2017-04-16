@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div></div>
+<script type="application/javascript">
+    document.onload=function(){
+        alert("document onload.");
+    }
+</script>
+</body>
+<script type="application/javascript">
+    var obj={};
+    window.onload=function(){
+        obj.timer=setInterval(function(){
+            alert("aaa")
+        },10000);
+    }
+</script>
+</html>
