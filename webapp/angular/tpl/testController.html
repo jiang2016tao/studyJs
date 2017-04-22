@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div ng-controller="testController">
+        hello,{{name}}
+        <button ng-click="testClick()">clickMe</button>
+    </div>
+</body>
+<script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+<script>
+    function testController($scope){
+        $scope.name="jiangguotao";
+        $scope.testClick=function(){
+            alert("hello angular");
+        }
+    }
+</script>
+</html>
