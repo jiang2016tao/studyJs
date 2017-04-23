@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp">
+    <hello></hello>
+    <div hello></div>
+    <div class="hello"></div>
+    <!-- directive:hello -->
+    <div>123</div>
+</body>
+<script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+<script>
+    var myApp=angular.module("myApp",[]);
+    myApp.directive("hello",function(){
+        return{
+            restrict:"AEMC",
+            template:"<h5>hello jiang</h5>",
+            replace:true
+        }
+    });
+</script>
+</html>
