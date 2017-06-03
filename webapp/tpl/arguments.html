@@ -27,5 +27,17 @@
           return(s);                          // 返回参数列表。
         }
     ArgTest(2,3);
+
+    if(typeof Function.prototype.bind === "undefined"){
+        Function.prototype.bind=function(thisArg){
+            var fn=this,
+                slice=Array.prototype.slice,
+                    args=slice.call(arguments,1);
+            return function(){
+                return fn.apply(thisArg,args.concat(arguments));
+            }
+
+        }
+    }
 </script>
 </html>
