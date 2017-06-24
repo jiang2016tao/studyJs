@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>h5的拖拽</title>
+</head>
+<body>
+<div id="div1" style="width: 100px;height: 100px;background: red" draggable="true">我可以拖动哦</div>
+</body>
+<script type="application/javascript">
+    //
+    window.onload=function(){
+        var div=document.getElementById("div1");
+        //注意事件前加on
+        div.ondragstart=function(){
+            alert("dragStarted");
+        }
+    }
+</script>
+</html>

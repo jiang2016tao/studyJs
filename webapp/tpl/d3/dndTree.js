@@ -382,12 +382,24 @@ treeJSON = d3.json("flare.json", function(error, treeData) {
             })
             .on('click', click);
 
-        nodeEnter.append("circle")
-            .attr('class', 'nodeCircle')
-            .attr("r", 0)
-            .style("fill", function(d) {
-                return d._children ? "lightsteelblue" : "#fff";
-            });
+        // nodeEnter.append("circle")
+        //     .attr('class', 'nodeCircle')
+        //     .attr("r", 3.0)
+        //     .style("fill", function(d) {
+        //         return d._children ? "lightsteelblue" : "#fff";
+        //     });
+
+        nodeEnter.append("rect").attr("x",function(d,i){
+            console.log(d+" : "+i);
+            return 0;
+        }).attr("y",function(d,i){
+            console.log(d+" : "+i);
+            return 0;
+        }).attr("width",function(){
+            return 60;
+        }).attr("height",function(){
+            return 60;
+        }).attr("class","rect_class");
 
 //        nodeEnter.append("text")
 //            .attr("x", function(d) {
@@ -404,6 +416,7 @@ treeJSON = d3.json("flare.json", function(error, treeData) {
 //            .style("fill-opacity", 0);
         
         nodeEnter.append("text")
+            .attr("class","name")
             .attr("y", function(d) { 
                     return d.children || d._children ? -18 : 18; }
                  )
@@ -411,9 +424,20 @@ treeJSON = d3.json("flare.json", function(error, treeData) {
             .attr("text-anchor", "middle")
             .text(function(d) { return d.name; })
             .style("fill-opacity", 1);
+
+        nodeEnter.append("text")
+            .attr("class","cicri")
+            .attr("y", function(d) {
+                return d.children || d._children ? -18 : 18; }
+            )
+            .attr("dy", ".35em")
+            .attr("text-anchor", "middle")
+            .text(function(d) { return d.name; })
+            .style("fill-opacity", 1);
         
 
         // phantom node to give us mouseover in a radius around it
+
         nodeEnter.append("circle")
             .attr('class', 'ghostCircle')
             .attr("r", 30)
@@ -428,7 +452,7 @@ treeJSON = d3.json("flare.json", function(error, treeData) {
             });
 
         // Update the text to reflect whether node has children or not.
-        node.select('text')
+        node.select('text.name')
             .attr("x", function(d) {
                 return d.children || d._children ? -10 : 10;
             })
@@ -439,12 +463,27 @@ treeJSON = d3.json("flare.json", function(error, treeData) {
                 return d.name;
             });
 
-        // Change the circle fill depending on whether it has children and is collapsed
-        node.select("circle.nodeCircle")
-            .attr("r", 4.5)
-            .style("fill", function(d) {
-                return d._children ? "lightsteelblue" : "#fff";
+        node.select('text.cicri')
+            .attr("x", function(d) {
+                return d.children || d._children ? 0 : 10;
+            })
+            .attr("text-anchor", function(d) {
+                return d.children || d._children ? "end" : "start";
+            })
+            .text(function(d) {
+                return d.cicri?d.cicri:0;
             });
+
+        // Change the circle fill depending on whether it has children and is collapsed
+        // node.select("circle.nodeCircle")
+        //     .attr("r", 4.5)
+        //     .style("fill", function(d) {
+        //         return d._children ? "lightsteelblue" : "#fff";
+        //     });
+
+        node.select("rect.rect_class").attr("fill",function(d){
+            return d._children ? "lightsteelblue" : "#fff";
+        });
 
         // Transition nodes to their new position.
         var nodeUpdate = node.transition()

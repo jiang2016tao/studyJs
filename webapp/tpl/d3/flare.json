@@ -1,9 +1,12 @@
 {
   "name": "flare",
+  "cicri":"22",
   "children": [{
     "name": "analytics",
+    "cicri":"13",
     "children": [{
       "name": "cluster",
+      "cicri":"12",
       "children": [{
         "name": "AgglomerativeCluster",
         "size": 3938
