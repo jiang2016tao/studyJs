@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="300px"></canvas>
+</body>
+<script type="application/javascript">
+    window.onload=function(){
+        var cs=document.getElementById("canvas");
+//        var ocs=cs.getContent("2d");注意不要记混淆了函数的使用
+//        ocs.rect(0,0,100,100);
+        var ocs=cs.getContext("2d");
+//        ocs.fillStyle="red";
+//        ocs.fillRect(0,0,100,100);
+//        ocs.strokeRect(0,0,100,100);
+//        ocs.fill();
+//        ocs.fillStyle("red");
+//        ocs.fillStyle="red";
+        ocs.beginPath();
+        ocs.moveTo(30,30);
+        ocs.lineTo(100,100);
+        ocs.closePath();
+        ocs.stroke();
+    }
+</script>
+</html>
