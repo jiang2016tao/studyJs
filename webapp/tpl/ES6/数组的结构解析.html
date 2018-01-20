@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let [a,b]=[1,2];
+    console.log(a);//1
+    console.log(b);//2
+
+    let {c=1,d=2}={c:3,d:4};
+    console.log(c);//3
+    console.log(d);//4
+
+    //一一对应
+    let [,,g]=[5,6,7];
+    console.log(g);//7
+
+    //这里...i会将后面的所有值当数组一样赋值给i
+    let [h,...i]=[8,9,10,11];
+    console.log(h);//8
+    console.log(i);//9,10,11
+
+    //默认赋值
+    let [j="jiang",k,l="test"]=[,12,undefined];
+    console.log(j);//jiang
+    console.log(k);//12
+    console.log(l);//test
+
+    let [m,n,o]=new Set([13,14,15]);
+    console.log(m);
+    console.log(n);
+    console.log(o);
+    //函数不明白
+    function* fibs() {
+        let a=0;
+        let b=1;
+        while (true){
+            yield a;//不明白
+            [a,b]=[b,a+b];
+        }
+    }
+    let [p,q,w]=fibs();
+    console.log(w);
+</script>
+</html>

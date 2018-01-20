@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let {name,age}={age:28,name:"jiang"};
+    console.log(name);
+    console.log(age);
+
+    let {name:person_name,age:person_age}={age:28,name:"jiang"};
+    console.log(person_name);
+
+    let {x=3,y=4}={x:undefined,y:null};
+    console.log(x);//3
+    console.log(y);//null
+
+    let {message:msg="hello world"}={};
+    console.log(msg);
+</script>
+</html>
