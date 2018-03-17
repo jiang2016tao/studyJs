@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let map=new Map();
+    map.set("id","12");
+    map.set("name","jiang");
+    //注意是数组，不要使用对象了
+    for(let [key,value] of map){
+        console.log(key);
+        console.log(value);
+    }
+    for(let [key] of map){
+        console.log(key);
+    }
+    for(let [,value] of map){
+        console.log(value);
+    }
+</script>
+</html>

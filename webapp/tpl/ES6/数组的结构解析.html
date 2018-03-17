@@ -40,11 +40,15 @@
         let a=0;
         let b=1;
         while (true){
+            console.log(a);
             yield a;//不明白
             [a,b]=[b,a+b];
         }
     }
     let [p,q,w]=fibs();
+    console.log(fibs());
+    console.log(p);
+    console.log(q);
     console.log(w);
 </script>
 </html>
