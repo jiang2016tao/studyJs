@@ -6,6 +6,8 @@ dom优化
 
 canvas学习不够，后续需要继续加强,妙味课堂的canvas下没有看哦。
 
+[webstorm使用git操作](https://www.cnblogs.com/Garven/articles/6909809.html)
+
 webstorm快捷键参考：http://www.51xuediannao.com/qd63/index.php/page-2-109-1.html
 查找/代替
 快捷键
