@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>loading</title>
+    <style>
+        body {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;/*ustify-content 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式*/
+            height: 100vh;
+        }
+        .Loader {
+            height: 30px;
+            width: 90px;
+            position: relative;
+        }
+        .Loader .Bar {
+            background: #04C096;
+            height: 0;
+            position: absolute;
+            bottom: 0;
+            width: 10px;
+            border-radius: 2px;
+        }
+        /*
+        animation: name duration timing-function delay iteration-count direction fill-mode play-state;
+        参数顺序解释
+        animation：指定要绑定到选择器的关键帧的名称 动画指定需要多少秒或毫秒完成 设置动画将如何完成一个周期 设置动画在启动前的延迟间隔 定义动画的播放次数 指定是否应该轮流反向播放动画 规定当动画不播放时（当动画完成时，或当动画有一个延迟未开始播放时），要应用到元素的样式 指定动画是否正在运行或已暂停
+        对动画说明：
+        关键帧的名称bottom-top 动画2s  infinite循环播放  动画低速进和出 启动前延迟间隔0s
+        参考[css动画-animation各个属性详解](https://blog.csdn.net/aSuncat/article/details/52588078)
+        */
+        .Loader .Bar:nth-child(0) { left: -15px; -webkit-animation: bottom-top 2s infinite ease-in-out 0s; animation: bottom-top 2s infinite ease-in-out 0s; }
+        .Loader .Bar:nth-child(1) { left: 0px; -webkit-animation: bottom-top 2s infinite ease-in-out 0.2s; animation: bottom-top 2s infinite ease-in-out 0.2s; }
+        .Loader .Bar:nth-child(2) { left: 15px; -webkit-animation: bottom-top 2s infinite ease-in-out 0.4s; animation: bottom-top 2s infinite ease-in-out 0.4s; }
+        .Loader .Bar:nth-child(3) { left: 30px; -webkit-animation: bottom-top 2s infinite ease-in-out 0.6s; animation: bottom-top 2s infinite ease-in-out 0.6s; }
+        .Loader .Bar:nth-child(4) { left: 45px; -webkit-animation: bottom-top 2s infinite ease-in-out 0.8s; animation: bottom-top 2s infinite ease-in-out 0.8s; }
+        .Loader .Bar:nth-child(5) { left: 60px; -webkit-animation: bottom-top 2s infinite ease-in-out 1s; animation: bottom-top 2s infinite ease-in-out 1s; }
+        .Loader .Bar:nth-child(6) { left: 75px; -webkit-animation: bottom-top 2s infinite ease-in-out 1.2s; animation: bottom-top 2s infinite ease-in-out 1.2s; }
+
+        @-webkit-keyframes bottom-top {
+            0% { height: 0; opacity: 0; }
+            50% { height: 30px; opacity: 1; }
+            100% { height: 0; opacity: 0; }
+        }
+
+        @keyframes bottom-top {
+            0% { height: 0; opacity: 0; }
+            50% { height: 30px; opacity: 1; }
+            100% { height: 0; opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+<div class="Loader">
+    <div class="Bar"></div>
+    <div class="Bar"></div>
+    <div class="Bar"></div>
+    <div class="Bar"></div>
+    <div class="Bar"></div>
+    <div class="Bar"></div>
+</div>
+</body>
+</html>
