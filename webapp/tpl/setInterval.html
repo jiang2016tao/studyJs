@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+<button id="start_btn">start</button>
+<script>
+    window.onload=function(){
+        let btn=document.getElementById("start_btn");
+        btn.addEventListener("click",()=>{
+            console.log("start");
+            let sum=retFcn();
+            console.log(sum);
+            var ajax={
+                get:()=>{
+                    $.ajax({
+                        type:'GET',
+                        url:"./movel.html",
+                        success:function(data){},
+                        error:function(){},
+                        complete:function () {
+
+                        }
+                    });
+                }
+            };
+            ajax.get();
+            for(let index=0;index<10000;index++){
+                for(let s=0;s<100000000;s++){
+                    let c=s;
+                }
+                console.log("FCN : "+index);
+            }
+        });
+
+        var retFcn=()=>{
+            let i=0;
+            for(let j=0;j<10000;j++){
+                i=j+i;
+            }
+            let t=setInterval(()=>{
+                for(let i=0;i<10;i++){
+                    for(let j=0;j<1000;j++){}
+                    console.log("interval : "+i);
+                }
+                clearInterval(t);
+            },100);
+            return i
+        }
+    };
+</script>
+</body>
+</html>

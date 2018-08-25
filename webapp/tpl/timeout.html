@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+<button id="time_btn">timeout</button>
+<script>
+    window.onload=function(){
+        let timeBtn=document.getElementById("time_btn");
+        timeBtn.addEventListener("click",()=>{
+            testTimeout();
+            console.time();
+            for(let j=0;j<10;j++){
+                for(let index=0;index<10000;index++){
+                    let s=index;
+                }
+                console.log("FCN : "+j);
+            }
+            console.timeEnd();
+            for(let j=0;j<10;j++){
+                for(let index=0;index<10000;index++){
+                    let s=index;
+                }
+                console.log("FCN2 : "+j);
+            }
+        });
+        var testTimeout=()=>{
+            setTimeout(timeF,10);
+        };
+        var timeF=()=>{
+            for(let i=0;i<10;i++){
+                console.log("timeF : "+i);
+            }
+        }
+    };
+</script>
+</body>
+</html>
